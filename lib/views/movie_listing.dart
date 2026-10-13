@@ -15,7 +15,26 @@ class MovieListing extends StatelessWidget {
         elevation: 0,
       ),
       drawer: const NavDrawer(),
-      body: Container(child: const SizedBox.shrink()),
+      body: Container(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text('Scarface'),
+            const Text('2h 50m · 18'),
+            const Text(
+              'In 1980 Miami, Cuban refugee Tony Montana claws his way up from '
+              'nothing to become a powerful drug lord, but greed and paranoia '
+              'threaten to destroy everything he has built.',
+            ),
+            ElevatedButton(
+              onPressed: () {
+                print('Add to order button pressed');
+              },
+              child: const Text('Add to order'),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
