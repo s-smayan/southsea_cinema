@@ -33,7 +33,12 @@ class _MovieListingState extends State<MovieListing> {
               style: cinemaHeaderStyle.copyWith(color: Colors.red),
             ),
             const SizedBox(height: 16),
-            const Text('2h 50m · 18'),
+            const Text('Southsea Cinema Room'),
+            const SizedBox(height: 8),
+            const Text('Friday 23 Oct 2026, 19:30 – ends at 22:20'),
+            const SizedBox(height: 8),
+            const Text('Runtime: 2h 50m'),
+            const SizedBox(height: 16),
             const Text(
               'In 1980 Miami, Cuban refugee Tony Montana claws his way up from '
               'nothing to become a powerful drug lord, but greed and paranoia '
