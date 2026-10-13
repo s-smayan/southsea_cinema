@@ -78,6 +78,13 @@ class _MovieListingState extends State<MovieListing> {
             ),
             Text('Tickets selected: $_ticketQuantity'),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: cinemaBrand,
+                foregroundColor: cinemaFontWhite,
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.zero,
+                ),
+              ),
               onPressed: () {
                 setState(() {
                   _bookingMessage =
@@ -85,7 +92,7 @@ class _MovieListingState extends State<MovieListing> {
                 });
                 print(_bookingMessage);
               },
-              child: const Text('Add to order'),
+              child: const Text('ADD TO ORDER'),
             ),
             Text(_bookingMessage),
           ],
