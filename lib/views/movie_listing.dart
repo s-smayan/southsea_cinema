@@ -52,9 +52,9 @@ class _MovieListingState extends State<MovieListing> {
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 8),
-            Row(
-              children: [
-                DropdownMenu<int>(
+            LayoutBuilder(
+              builder: (context, constraints) {
+                final ticketDropdown = DropdownMenu<int>(
                   initialSelection: _ticketQuantity,
                   onSelected: (int? value) {
                     if (value != null) {
@@ -71,10 +71,28 @@ class _MovieListingState extends State<MovieListing> {
                     DropdownMenuEntry(value: 4, label: '4'),
                     DropdownMenuEntry(value: 5, label: '5'),
                   ],
-                ),
-                const SizedBox(width: 12),
-                const Text('Adult (£7.50)'),
-              ],
+                );
+                const ticketPrice = Text('Adult (£7.50)');
+
+                if (constraints.maxWidth > 600) {
+                  return Row(
+                    children: [
+                      ticketDropdown,
+                      const SizedBox(width: 12),
+                      ticketPrice,
+                    ],
+                  );
+                } else {
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      ticketDropdown,
+                      const SizedBox(height: 8),
+                      ticketPrice,
+                    ],
+                  );
+                }
+              },
             ),
             Text('Tickets selected: $_ticketQuantity'),
             ElevatedButton(
