@@ -24,10 +24,15 @@ class _MovieListingState extends State<MovieListing> {
       ),
       drawer: const NavDrawer(),
       body: Container(
+        padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text('Scarface'),
+            Text(
+              'SCARFACE (1983) (18)',
+              style: cinemaHeaderStyle.copyWith(color: Colors.red),
+            ),
+            const SizedBox(height: 16),
             const Text('2h 50m · 18'),
             const Text(
               'In 1980 Miami, Cuban refugee Tony Montana claws his way up from '
