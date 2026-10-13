@@ -44,6 +44,14 @@ class _MovieListingState extends State<MovieListing> {
               'nothing to become a powerful drug lord, but greed and paranoia '
               'threaten to destroy everything he has built.',
             ),
+            const SizedBox(height: 16),
+            const Text('Select Quantities (Up to 5 in total)'),
+            const SizedBox(height: 16),
+            const Text(
+              'Tickets',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 8),
             DropdownMenu<int>(
               initialSelection: _ticketQuantity,
               onSelected: (int? value) {
