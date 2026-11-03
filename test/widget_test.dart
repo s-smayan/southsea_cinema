@@ -39,6 +39,19 @@ void main() {
       await tester.pump();
 
       expect(find.text('Added 1 tickets to the order'), findsOneWidget);
+
+      await tester.binding.handlePopRoute();
+      await tester.pumpAndSettle();
+
+      expect(find.byType(HomeView), findsOneWidget);
+      expect(find.byType(MovieListing), findsNothing);
+
+      await tester.tap(find.text('BOOK NOW').last);
+      await tester.pumpAndSettle();
+
+      expect(find.text('FIGHT CLUB (18)'), findsOneWidget);
+      expect(find.text('Saturday 14 Nov 2026, 20:00'), findsOneWidget);
+      expect(find.text('Added 1 tickets to the order'), findsNothing);
     });
   });
 }
