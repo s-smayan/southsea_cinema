@@ -1,3 +1,4 @@
+import 'package:southsea_cinema/views/movie_listing.dart';
 import 'package:flutter/material.dart';
 import 'package:southsea_cinema/constants.dart';
 import 'package:southsea_cinema/models/movie.dart';
@@ -57,7 +58,14 @@ class MovieCard extends StatelessWidget {
                 ),
               ),
               onPressed: () {
-                debugPrint('BOOK NOW pressed for ${movie.title}');
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return MovieListing(movie: movie);
+                    },
+                  ),
+                );
               },
               child: const Text('BOOK NOW'),
             ),

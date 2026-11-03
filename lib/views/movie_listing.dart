@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:southsea_cinema/constants.dart';
+import 'package:southsea_cinema/models/movie.dart';
 import 'package:southsea_cinema/widgets/nav_drawer.dart';
 
 class MovieListing extends StatefulWidget {
-  const MovieListing({super.key});
+  final Movie movie;
+
+  const MovieListing({super.key, required this.movie});
 
   @override
   State<MovieListing> createState() => _MovieListingState();
@@ -29,21 +32,15 @@ class _MovieListingState extends State<MovieListing> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'SCARFACE (1983) (18)',
+              '${widget.movie.title.toUpperCase()} (${widget.movie.ageRating})',
               style: cinemaHeaderStyle.copyWith(color: Colors.red),
             ),
             const SizedBox(height: 16),
             const Text('Southsea Cinema Room'),
             const SizedBox(height: 8),
-            const Text('Friday 23 Oct 2026, 19:30 – ends at 22:20'),
-            const SizedBox(height: 8),
-            const Text('Runtime: 2h 50m'),
+            Text(widget.movie.screeningTime),
             const SizedBox(height: 16),
-            const Text(
-              'In 1980 Miami, Cuban refugee Tony Montana claws his way up from '
-              'nothing to become a powerful drug lord, but greed and paranoia '
-              'threaten to destroy everything he has built.',
-            ),
+            Text(widget.movie.synopsis),
             const SizedBox(height: 16),
             const Text('Select Quantities (Up to 5 in total)'),
             const SizedBox(height: 16),
@@ -71,7 +68,9 @@ class _MovieListingState extends State<MovieListing> {
                     DropdownMenuEntry(value: 5, label: '5'),
                   ],
                 );
-                const ticketPrice = Text('Adult (£7.50)');
+                final ticketPrice = Text(
+                  'Adult (£${widget.movie.price.toStringAsFixed(2)})',
+                );
 
                 if (constraints.maxWidth > 600) {
                   return Row(
