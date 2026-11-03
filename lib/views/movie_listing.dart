@@ -68,9 +68,8 @@ class _MovieListingState extends State<MovieListing> {
                     DropdownMenuEntry(value: 5, label: '5'),
                   ],
                 );
-                final ticketPrice = Text(
-                  'Adult (£${widget.movie.price.toStringAsFixed(2)})',
-                );
+                final ticketPrice =
+                    Text('Adult (${widget.movie.formattedPrice})');
 
                 if (constraints.maxWidth > 600) {
                   return Row(
