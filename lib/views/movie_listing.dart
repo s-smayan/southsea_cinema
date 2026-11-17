@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:southsea_cinema/constants.dart';
 import 'package:southsea_cinema/models/movie.dart';
 import 'package:southsea_cinema/widgets/nav_drawer.dart';
+import 'package:southsea_cinema/widgets/primary_button.dart';
 
 class MovieListing extends StatefulWidget {
   final Movie movie;
@@ -63,8 +64,9 @@ class _MovieListingState extends State<MovieListing> {
                     DropdownMenuEntry(value: 5, label: '5'),
                   ],
                 );
-                final ticketPrice =
-                    Text('Adult (${widget.movie.formattedPrice})');
+                final ticketPrice = Text(
+                  'Adult (${widget.movie.formattedPrice})',
+                );
 
                 if (constraints.maxWidth > 600) {
                   return Row(
@@ -87,21 +89,14 @@ class _MovieListingState extends State<MovieListing> {
               },
             ),
             Text('Tickets selected: $_ticketQuantity'),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: cinemaBrand,
-                foregroundColor: cinemaFontWhite,
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.zero,
-                ),
-              ),
+            PrimaryButton(
+              label: 'ADD TO ORDER',
               onPressed: () {
                 setState(() {
                   _bookingMessage =
                       'Added $_ticketQuantity tickets to the order';
                 });
               },
-              child: const Text('ADD TO ORDER'),
             ),
             Text(_bookingMessage),
           ],
