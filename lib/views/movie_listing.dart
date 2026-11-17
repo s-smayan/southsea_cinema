@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:southsea_cinema/constants.dart';
+import 'package:southsea_cinema/models/basket_item.dart';
 import 'package:southsea_cinema/models/movie.dart';
+import 'package:southsea_cinema/repositories/basket_repository.dart';
 import 'package:southsea_cinema/widgets/nav_drawer.dart';
 import 'package:southsea_cinema/widgets/primary_button.dart';
 
@@ -92,6 +94,9 @@ class _MovieListingState extends State<MovieListing> {
             PrimaryButton(
               label: 'ADD TO ORDER',
               onPressed: () {
+                BasketRepository.instance.addItem(
+                  BasketItem(movie: widget.movie, quantity: _ticketQuantity),
+                );
                 setState(() {
                   _bookingMessage =
                       'Added $_ticketQuantity tickets to the order';
