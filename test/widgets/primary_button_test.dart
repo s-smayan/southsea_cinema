@@ -4,8 +4,7 @@ import 'package:southsea_cinema/widgets/primary_button.dart';
 
 void main() {
   group('PrimaryButton widget tests', () {
-    testWidgets('PrimaryButton renders its label',
-        (WidgetTester tester) async {
+    testWidgets('PrimaryButton renders its label', (WidgetTester tester) async {
       await tester.pumpWidget(
         MaterialApp(
           home: Scaffold(
